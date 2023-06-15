@@ -16,6 +16,7 @@
 
 #include "file_path.h"
 #include "gtest/gtest.h"
+#include "test_utility.h"
 
 namespace Visqol {
 namespace {
@@ -34,7 +35,7 @@ const double kStereoDuration = 12.45;
 const double kDurationTolerance = 0.01;
 
 TEST(LoadAsMono, Mono) {
-  FilePath mono_file{"testdata/clean_speech/CA01_01.wav"};
+  FilePath mono_file{VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav")};
 
   auto wavreader_audio = Visqol::MiscAudio::LoadAsMono(mono_file);
   ASSERT_EQ(kMonoTestsample_rate, wavreader_audio.sample_rate);
@@ -45,7 +46,7 @@ TEST(LoadAsMono, Mono) {
 }
 
 TEST(LoadAsMono, MonoFromStream) {
-  std::ifstream wav_file("testdata/clean_speech/CA01_01.wav", std::ios::binary);
+  std::ifstream wav_file(VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"), std::ios::binary);
   std::stringstream wav_string_stream;
   wav_string_stream << wav_file.rdbuf();
   wav_file.close();
@@ -67,8 +68,8 @@ TEST(LoadAsMono, MonoFromEmptyStream) {
 
 TEST(LoadAsMono, Stereo) {
   FilePath stereo_file{
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav"};
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav")};
 
   auto wavreader_audio = Visqol::MiscAudio::LoadAsMono(stereo_file);
   ASSERT_EQ(kStereoTestsample_rate, wavreader_audio.sample_rate);

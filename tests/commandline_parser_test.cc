@@ -31,7 +31,7 @@ const char kDegFile2[] = "deg_2.wav";
 // Test to ensure that a csv batch file can be successfully parsed.
 TEST(BuildFilePairPaths, BatchFile) {
   const Visqol::CommandLineArgs cmd_args =
-      CommandLineArgsHelper("", "", "testdata/example_batch/batch_input.csv");
+      CommandLineArgsHelper("", "", VISQOL_PATH_PARSER("testdata/example_batch/batch_input.csv"));
   std::vector<ReferenceDegradedPathPair> file_pairs =
       VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
   ASSERT_EQ(file_pairs.size(), kCountOfBatchFilePairs);

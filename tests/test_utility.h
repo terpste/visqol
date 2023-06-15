@@ -24,6 +24,10 @@
 #include "commandline_parser.h"
 #include "gtest/gtest.h"
 
+#ifndef VISQOL_PATH_PARSER
+#define VISQOL_PATH_PARSER(path) path
+#endif
+
 namespace Visqol {
 inline Visqol::CommandLineArgs CommandLineArgsHelper(
     absl::string_view reference_file, absl::string_view degraded_file,
@@ -33,7 +37,7 @@ inline Visqol::CommandLineArgs CommandLineArgsHelper(
   const char* model_path =
       speech_mode ? kDefaultSpeechModelFile : kDefaultAudioModelFile;
   const std::string similarity_to_quality_model =
-      absl::StrCat(FilePath::currentWorkingDir(), model_path);
+      VISQOL_PATH_PARSER(absl::StrCat(FilePath::currentWorkingDir(), model_path));
   return CommandLineArgs{.reference_signal_path = reference_file,
                          .degraded_signal_path = degraded_file,
                          .similarity_to_quality_mapper_model =

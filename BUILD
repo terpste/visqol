@@ -249,6 +249,7 @@ cc_test(
         "//testdata:clean_speech/CA01_01.wav",
     ],
     deps = [
+        ":test_utility",
         ":visqol_lib",
         "@com_google_absl//absl/memory",
         "@com_google_googletest//:gtest_main",
@@ -278,6 +279,7 @@ cc_test(
     ],
     shard_count = 15,
     deps = [
+        ":test_utility",
         ":similarity_result_cc_proto",
         ":visqol_config_cc_proto",
         ":visqol_lib",
@@ -459,6 +461,7 @@ cc_test(
         "//testdata/conformance_testdata_subset:guitar48_stereo.wav",
     ],
     deps = [
+        ":test_utility",
         ":visqol_lib",
         "@com_google_googletest//:gtest_main",
     ],
@@ -515,6 +518,7 @@ cc_test(
         "//testdata/conformance_testdata_subset:guitar48_stereo.wav",
     ],
     deps = [
+        ":test_utility",
         ":visqol_lib",
         "@com_google_absl//absl/memory",
         "@com_google_googletest//:gtest_main",

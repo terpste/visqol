@@ -43,30 +43,30 @@ class ShortDurationTest
 INSTANTIATE_TEST_CASE_P(
     TestParams, ShortDurationTest,
     testing::Values(
-        ShortDurationTestData("testdata/short_duration/"
-                              "1_sample/guitar48_stereo_1_sample.wav",
-                              "testdata/short_duration/"
-                              "1_sample/guitar48_stereo_1_sample.wav",
+        ShortDurationTestData(VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "1_sample/guitar48_stereo_1_sample.wav"),
+                              VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "1_sample/guitar48_stereo_1_sample.wav"),
                               0),
-        ShortDurationTestData("testdata/short_duration/"
-                              "10_sample/guitar48_stereo_10_sample.wav",
-                              "testdata/short_duration/"
-                              "10_sample/guitar48_stereo_10_sample.wav",
+        ShortDurationTestData(VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "10_sample/guitar48_stereo_10_sample.wav"),
+                              VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "10_sample/guitar48_stereo_10_sample.wav"),
                               0),
-        ShortDurationTestData("testdata/short_duration/"
-                              "100_sample/guitar48_stereo_100_sample.wav",
-                              "testdata/short_duration/"
-                              "100_sample/guitar48_stereo_100_sample.wav",
+        ShortDurationTestData(VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "100_sample/guitar48_stereo_100_sample.wav"),
+                              VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "100_sample/guitar48_stereo_100_sample.wav"),
                               0),
-        ShortDurationTestData("testdata/short_duration/"
-                              "1000_sample/guitar48_stereo_1000_sample.wav",
-                              "testdata/short_duration/"
-                              "1000_sample/guitar48_stereo_1000_sample.wav",
+        ShortDurationTestData(VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "1000_sample/guitar48_stereo_1000_sample.wav"),
+                              VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "1000_sample/guitar48_stereo_1000_sample.wav"),
                               0),
-        ShortDurationTestData("testdata/short_duration/"
-                              "10000_sample/guitar48_stereo_10000_sample.wav",
-                              "testdata/short_duration/"
-                              "10000_sample/guitar48_stereo_10000_sample.wav",
+        ShortDurationTestData(VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "10000_sample/guitar48_stereo_10000_sample.wav"),
+                              VISQOL_PATH_PARSER("testdata/short_duration/"
+                              "10000_sample/guitar48_stereo_10000_sample.wav"),
                               0)));
 
 // Assert the an error code of INVALID_ARGUMENT is returned for a range of
@@ -97,10 +97,10 @@ TEST_P(ShortDurationTest, InvalidArgsTest) {
 TEST(ShortDuration, 1_second) {
   // Build command line args.
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/short_duration/1_second/"
-      "guitar48_stereo_1_sec.wav",
-      "testdata/short_duration/1_second/"
-      "guitar48_stereo_1_sec.wav");
+      VISQOL_PATH_PARSER("testdata/short_duration/1_second/"
+      "guitar48_stereo_1_sec.wav"),
+      VISQOL_PATH_PARSER("testdata/short_duration/1_second/"
+      "guitar48_stereo_1_sec.wav"));
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
   // Init ViSQOL.
@@ -122,10 +122,10 @@ TEST(ShortDuration, 1_second) {
 TEST(ShortDuration, 5_second) {
   // Build command line args.
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/short_duration/5_second/"
-      "guitar48_stereo_5_sec.wav",
-      "testdata/short_duration/5_second/"
-      "guitar48_stereo_5_sec.wav");
+      VISQOL_PATH_PARSER("testdata/short_duration/5_second/"
+      "guitar48_stereo_5_sec.wav"),
+      VISQOL_PATH_PARSER("testdata/short_duration/5_second/"
+      "guitar48_stereo_5_sec.wav"));
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
   // Init ViSQOL.

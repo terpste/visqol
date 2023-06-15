@@ -70,95 +70,95 @@ TEST_P(ConformanceTest, ConformanceWithKnownScores) {
 INSTANTIATE_TEST_CASE_P(
     TestParams, ConformanceTest,
     testing::Values(
-        ConformanceTestData("testdata/clean_speech/CA01_01.wav",
-                            "testdata/clean_speech/transcoded_CA01_01.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+                            VISQOL_PATH_PARSER("testdata/clean_speech/transcoded_CA01_01.wav"),
                             true, kConformanceSpeechCA01TranscodedLattice,
                             true),
-        ConformanceTestData("testdata/clean_speech/CA01_01.wav",
-                            "testdata/clean_speech/transcoded_CA01_01.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+                            VISQOL_PATH_PARSER("testdata/clean_speech/transcoded_CA01_01.wav"),
                             true, kConformanceSpeechCA01TranscodedExponential,
                             false),
-        ConformanceTestData("testdata/clean_speech/CA01_01.wav",
-                            "testdata/clean_speech/CA01_01.wav", true,
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+                            VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"), true,
                             kConformanceCA01PerfectScoreLattice, true),
-        ConformanceTestData("testdata/clean_speech/CA01_01.wav",
-                            "testdata/clean_speech/CA01_01.wav", true,
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+                            VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"), true,
                             kConformanceUnscaledPerfectScoreExponential, false,
                             true),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "strauss48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "strauss48_stereo_lp35.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "strauss48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "strauss48_stereo_lp35.wav"),
                             false, kConformanceStraussLp35, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "steely48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "steely48_stereo_lp7.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "steely48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "steely48_stereo_lp7.wav"),
                             false, kConformanceSteelyLp7, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "sopr48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "sopr48_stereo_256kbps_aac.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "sopr48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "sopr48_stereo_256kbps_aac.wav"),
                             false, kConformanceSopr256aac, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "ravel48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "ravel48_stereo_128kbps_opus.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "ravel48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "ravel48_stereo_128kbps_opus.wav"),
                             false, kConformanceRavel128opus, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "moonlight48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "moonlight48_stereo_128kbps_aac.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "moonlight48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "moonlight48_stereo_128kbps_aac.wav"),
                             false, kConformanceMoonlight128aac, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "harpsichord48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "harpsichord48_stereo_96kbps_mp3.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "harpsichord48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "harpsichord48_stereo_96kbps_mp3.wav"),
                             false, kConformanceHarpsichord96mp3, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "guitar48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "guitar48_stereo_64kbps_aac.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "guitar48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "guitar48_stereo_64kbps_aac.wav"),
                             false, kConformanceGuitar64aac, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "glock48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "glock48_stereo_48kbps_aac.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "glock48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "glock48_stereo_48kbps_aac.wav"),
                             false, kConformanceGlock48aac, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "contrabassoon48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "contrabassoon48_stereo_24kbps_aac.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "contrabassoon48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "contrabassoon48_stereo_24kbps_aac.wav"),
                             false, kConformanceContrabassoon24aac, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "castanets48_stereo.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "castanets48_stereo.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "castanets48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "castanets48_stereo.wav"),
                             false, kConformanceCastanetsIdentity, false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "guitar48_stereo.wav",
-                            "testdata/short_duration/5_second/"
-                            "guitar48_stereo_5_sec.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "guitar48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/short_duration/5_second/"
+                            "guitar48_stereo_5_sec.wav"),
                             false, kConformanceGuitarShortDegradedPatch, false),
-        ConformanceTestData("testdata/short_duration/5_second/"
-                            "guitar48_stereo_5_sec.wav",
-                            "testdata/conformance_testdata_subset/"
-                            "guitar48_stereo.wav",
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/short_duration/5_second/"
+                            "guitar48_stereo_5_sec.wav"),
+                            VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "guitar48_stereo.wav"),
                             false, kConformanceGuitarShortReferencePatch,
                             false),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "guitar48_stereo.wav",
-                            "testdata/clean_speech/CA01_01.wav", true,
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "guitar48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"), true,
                             kConformanceDifferentAudiosLattice, true),
-        ConformanceTestData("testdata/conformance_testdata_subset/"
-                            "guitar48_stereo.wav",
-                            "testdata/clean_speech/CA01_01.wav", true,
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+                            "guitar48_stereo.wav"),
+                            VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"), true,
                             kConformanceDifferentAudiosExponential, false),
-        ConformanceTestData("testdata/alignment/reference.wav",
-                            "testdata/alignment/degraded.wav", true,
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/alignment/reference.wav"),
+                            VISQOL_PATH_PARSER("testdata/alignment/degraded.wav"), true,
                             kConformanceBadDegradedLattice, true),
-        ConformanceTestData("testdata/alignment/reference.wav",
-                            "testdata/alignment/degraded.wav", true,
+        ConformanceTestData(VISQOL_PATH_PARSER("testdata/alignment/reference.wav"),
+                            VISQOL_PATH_PARSER("testdata/alignment/degraded.wav"), true,
                             kConformanceBadDegradedExponential, false)));
 }  // namespace
 }  // namespace Visqol

@@ -39,8 +39,8 @@ const double kPerfectScore = 5.0;
  */
 TEST(RegressionTest, Mono) {
   const Visqol::CommandLineArgs cmd_args =
-      CommandLineArgsHelper("testdata/clean_speech/CA01_01.wav",
-                            "testdata/clean_speech/transcoded_CA01_01.wav");
+      CommandLineArgsHelper(VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+                            VISQOL_PATH_PARSER("testdata/clean_speech/transcoded_CA01_01.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -61,10 +61,10 @@ TEST(RegressionTest, Mono) {
  */
 TEST(RegressionTest, Stereo) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo_64kbps_aac.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo_64kbps_aac.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -98,8 +98,8 @@ TEST(VisqolCommandLineTest, FailedInit) {
  */
 TEST(VisqolCommandLineTest, MissingInit) {
   const Visqol::CommandLineArgs cmd_args =
-      CommandLineArgsHelper("testdata/clean_speech/CA01_01.wav",
-                            "testdata/clean_speech/transcoded_CA01_01.wav");
+      CommandLineArgsHelper(VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+                            VISQOL_PATH_PARSER("testdata/clean_speech/transcoded_CA01_01.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -126,10 +126,10 @@ TEST(VisqolCommandLineTest, MissingInit) {
  */
 TEST(VisqolCommandLineTest, FilteredFreqs) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/filtered_freqs/"
-      "guitar48_stereo_10k_filtered_freqs.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/filtered_freqs/"
+      "guitar48_stereo_10k_filtered_freqs.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -179,10 +179,10 @@ TEST(VisqolCommandLineTest, FilteredFreqs) {
  */
 TEST(VisqolCommandLineTest, IdenticalStddevNsim) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -217,10 +217,10 @@ TEST(VisqolCommandLineTest, IdenticalStddevNsim) {
  */
 TEST(VisqolCommandLineTest, Non48kSampleRate) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/non_48k_sample_rate/"
-      "guitar48_stereo_44100Hz.wav",
-      "testdata/non_48k_sample_rate/"
-      "guitar48_stereo_44100Hz.wav");
+      VISQOL_PATH_PARSER("testdata/non_48k_sample_rate/"
+      "guitar48_stereo_44100Hz.wav"),
+      VISQOL_PATH_PARSER("testdata/non_48k_sample_rate/"
+      "guitar48_stereo_44100Hz.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -244,10 +244,10 @@ TEST(VisqolCommandLineTest, Non48kSampleRate) {
 TEST(VisqolCommandLineTest, DifferentSampleRate) {
   // Ref 48k, Deg 44.1k
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/non_48k_sample_rate/"
-      "guitar48_stereo_44100Hz.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/non_48k_sample_rate/"
+      "guitar48_stereo_44100Hz.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -267,10 +267,10 @@ TEST(VisqolCommandLineTest, DifferentSampleRate) {
  */
 TEST(VisqolCommandLineTest, PatchTimestampsIdenticalFiles) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -309,10 +309,10 @@ TEST(VisqolCommandLineTest, PatchTimestampsIdenticalFiles) {
  */
 TEST(VisqolCommandLineTest, PatchTimestampsMissing50ms) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/mismatched_duration/"
-      "guitar48_stereo_middle_50ms_cut.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/mismatched_duration/"
+      "guitar48_stereo_middle_50ms_cut.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -362,8 +362,8 @@ TEST(VisqolCommandLineTest, PatchTimestampsMissing50ms) {
  */
 TEST(VisqolCommandLineTest, SpeechModeDisabled) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/clean_speech/CA01_01.wav",
-      "testdata/clean_speech/transcoded_CA01_01.wav", "", false, true);
+      VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+      VISQOL_PATH_PARSER("testdata/clean_speech/transcoded_CA01_01.wav"), "", false, true);
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
@@ -386,7 +386,8 @@ TEST(VisqolCommandLineTest, SpeechModeDisabled) {
  */
 TEST(VisqolCommandLineTest, ScaledSpeechMode) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/clean_speech/CA01_01.wav", "testdata/clean_speech/CA01_01.wav",
+      VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+      VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
       "", true, false, 60, false);
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
@@ -409,7 +410,8 @@ TEST(VisqolCommandLineTest, ScaledSpeechMode) {
  */
 TEST(VisqolCommandLineTest, UnscaledSpeechMode) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/clean_speech/CA01_01.wav", "testdata/clean_speech/CA01_01.wav",
+      VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
+      VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav"),
       "", true, true, 60, false);
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
@@ -432,10 +434,10 @@ TEST(VisqolCommandLineTest, UnscaledSpeechMode) {
  */
 TEST(VisqolCommandLineTest, ZeroLagOnidenticalFiles) {
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"));
   Visqol::VisqolManager visqol;
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 

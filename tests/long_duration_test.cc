@@ -34,10 +34,10 @@ const double kTolerance = 1.0;
 TEST(LongFiles, 1_min) {
   // Build command line args.
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/long_duration/1_min/"
-      "guitar48_stereo_ref_25s.wav",
-      "testdata/long_duration/1_min/"
-      "guitar48_stereo_deg_25s.wav",
+      VISQOL_PATH_PARSER("testdata/long_duration/1_min/"
+      "guitar48_stereo_ref_25s.wav"),
+      VISQOL_PATH_PARSER("testdata/long_duration/1_min/"
+      "guitar48_stereo_deg_25s.wav"),
       "", false);
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 

@@ -23,6 +23,7 @@
 #include "gammatone_spectrogram_builder.h"
 #include "gtest/gtest.h"
 #include "misc_audio.h"
+#include "test_utility.h"
 
 namespace Visqol {
 
@@ -42,7 +43,7 @@ const size_t kCA01_01VadResCount = 240;
 TEST(VadPatchCreatorTest, CleanSpeechVAD) {
   // Test that the VAD accepts clean speech.
   // File containing speech ("The birch canoe slid on the smooth planks")
-  const char* ref_file = "testdata/clean_speech/CA01_01.wav";
+  const char* ref_file = VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav");
 
   AudioSignal ref_signal = MiscAudio::LoadAsMono(FilePath(ref_file));
   VadPatchCreator vad(kPatchSize);
@@ -56,7 +57,7 @@ TEST(VadPatchCreatorTest, CleanSpeechVAD) {
  */
 TEST(VadPatchCreatorTest, PatchIndices) {
   // Load the signal.
-  const char* ref_file = "testdata/clean_speech/CA01_01.wav";
+  const char* ref_file = VISQOL_PATH_PARSER("testdata/clean_speech/CA01_01.wav");
   AudioSignal ref_signal = MiscAudio::LoadAsMono(FilePath(ref_file));
 
   // Create the analysis window.

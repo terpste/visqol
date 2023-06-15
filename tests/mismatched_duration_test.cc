@@ -34,9 +34,9 @@ const double kTolerance = 1.0;
 TEST(MismatchedLengths, deg_too_short) {
   // Build command line args.
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/mismatched_duration/guitar48_stereo_x2.wav",
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav");
+      VISQOL_PATH_PARSER("testdata/mismatched_duration/guitar48_stereo_x2.wav"),
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"));
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
   // Init ViSQOL.
@@ -60,10 +60,10 @@ TEST(MismatchedLengths, deg_too_short) {
 TEST(MismatchedLengths, deg_too_long) {
   // Build command line args.
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/mismatched_duration/"
-      "guitar48_stereo_middle_2sec_cut.wav",
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav");
+      VISQOL_PATH_PARSER("testdata/mismatched_duration/"
+      "guitar48_stereo_middle_2sec_cut.wav"),
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"));
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
   // Init ViSQOL.
@@ -87,10 +87,10 @@ TEST(MismatchedLengths, deg_too_long) {
 TEST(MismatchedLengths, deg_long) {
   // Build command line args.
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/mismatched_duration/"
-      "guitar48_stereo_middle_50ms_cut.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/mismatched_duration/"
+      "guitar48_stereo_middle_50ms_cut.wav"));
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
   // Init ViSQOL.

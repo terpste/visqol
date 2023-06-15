@@ -24,13 +24,13 @@ namespace {
 
 const double kTolerance = 2.0;
 const FilePath kTargetsPath = FilePath(
-    "testdata/svr_training/"
-    "training_mat_tcdaudio14_aacvopus15_moslqs.txt");
+    VISQOL_PATH_PARSER("testdata/svr_training/"
+    "training_mat_tcdaudio14_aacvopus15_moslqs.txt"));
 const FilePath kObservationsPath = FilePath(
-    "testdata/svr_training/"
-    "training_mat_tcdaudio14_aacvopus15_fvnsims.txt");
+    VISQOL_PATH_PARSER("testdata/svr_training/"
+    "training_mat_tcdaudio14_aacvopus15_fvnsims.txt"));
 const FilePath kDefaultAudioModelFile =
-    FilePath(FilePath::currentWorkingDir() + "/model/libsvm_nu_svr_model.txt");
+    FilePath(VISQOL_PATH_PARSER(FilePath::currentWorkingDir() + "/model/libsvm_nu_svr_model.txt"));
 
 // This is the FVNSIM results for a ViSQOL comparison between
 // contrabassoon48_stereo.wav and contrabassoon48_stereo_24kbps_aac.wav

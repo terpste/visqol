@@ -27,19 +27,19 @@ namespace {
 const double kTolerance = .00001;
 
 const FilePath kDefaultModel =
-    FilePath(FilePath::currentWorkingDir() + "/model/libsvm_nu_svr_model.txt");
-const FilePath kTestModel = FilePath(FilePath::currentWorkingDir() +
-                                     "/testdata/test_model/cpp_model.txt");
+    FilePath(VISQOL_PATH_PARSER(FilePath::currentWorkingDir() + "/model/libsvm_nu_svr_model.txt"));
+const FilePath kTestModel = FilePath(VISQOL_PATH_PARSER(FilePath::currentWorkingDir() +
+                                     "/testdata/test_model/cpp_model.txt"));
 
 const double kGuitarMoslqoNewModel = 4.7776205494442028;
 
 void thread_glock_test() {
   // Build command line args.
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "glock48_stereo.wav",
-      "testdata/conformance_testdata_subset/"
-      "glock48_stereo_48kbps_aac.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "glock48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "glock48_stereo_48kbps_aac.wav"));
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
   // Init ViSQOL.
@@ -58,10 +58,10 @@ void thread_glock_test() {
 void thread_guitar_test(const FilePath model, const double moslqo) {
   // Build command line args.
   const Visqol::CommandLineArgs cmd_args = CommandLineArgsHelper(
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo.wav",
-      "testdata/conformance_testdata_subset/"
-      "guitar48_stereo_64kbps_aac.wav");
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo.wav"),
+      VISQOL_PATH_PARSER("testdata/conformance_testdata_subset/"
+      "guitar48_stereo_64kbps_aac.wav"));
   auto files_to_compare = VisqolCommandLineParser::BuildFilePairPaths(cmd_args);
 
   // Init ViSQOL.
